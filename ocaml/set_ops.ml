@@ -26,3 +26,14 @@ let rec (union : 'a list -> 'a list -> 'a list) =
 		| (_::_, []) -> s1
 		| (h1::t1, h2::t2) -> union t1 (add h1 t2)
 ;;
+
+(* intersection function: return the intersection of s1 and s2 *)
+
+let (intersection : 'a list -> 'a list -> 'a list) =
+	fun s1 s2 ->
+		match (s1, s2) with
+			([], []) -> []
+		| ([], _::_) -> []
+		| (_::_, []) -> []
+		| (h1::t1, h2::t2) -> List.filter (fun (x) -> if member x s1 then true else false) s2
+;;

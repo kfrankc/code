@@ -14,3 +14,8 @@ assert( union [1; 2] [3; 4] = [3; 4; 1; 2]);;
 assert( union [] [1; 2] = [1; 2]);;
 assert( union [1] [1; 2; 3] = [1; 2; 3]);;
 assert( union [5; 3; 2] [3; 7; 2] = [3; 7; 2; 5]);;
+(* intersection *)
+assert( intersection [] [] = []);;
+assert( intersection [1] [] = []);;
+assert( intersection [1] [1] = [1]);;
+assert( intersection [1; 2; 3] [1; 3; 2] = [1; 3; 2]);;
