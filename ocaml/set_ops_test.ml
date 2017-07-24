@@ -19,3 +19,9 @@ assert( intersection [] [] = []);;
 assert( intersection [1] [] = []);;
 assert( intersection [1] [1] = [1]);;
 assert( intersection [1; 2; 3] [1; 3; 2] = [1; 3; 2]);;
+(* setify *)
+assert( setify [] = []);;
+assert( setify [1; 2] = [1; 2]);;
+assert( setify [1; 2; 1] = [2; 1]);;
+assert( setify [1; 2; 1; 4; 1] = [2; 4; 1]);;
+assert( setify [1; 2; 1; 4; 2; 5; 4] = [1; 2; 5; 4]);;

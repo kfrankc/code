@@ -37,3 +37,13 @@ let (intersection : 'a list -> 'a list -> 'a list) =
 		| (_::_, []) -> []
 		| (h1::t1, h2::t2) -> List.filter (fun (x) -> if member x s1 then true else false) s2
 ;;
+
+(* setify *)
+
+let rec (setify : 'a list -> 'a list) =
+	fun l ->
+		match l with
+			[] -> []
+		| [h] -> [h]
+		| h::t -> if (member h t) then setify t else h::setify t
+;;
