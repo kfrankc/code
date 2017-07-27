@@ -47,3 +47,13 @@ let rec (setify : 'a list -> 'a list) =
 		| [h] -> [h]
 		| h::t -> if (member h t) then setify t else h::setify t
 ;;
+
+(* powerset *)
+
+let rec (powerset : 'a list -> 'a list list) =
+  fun s ->
+    match s with
+      []   -> [[]]
+    | h::t -> let s = powerset t in
+                      s @ (List.map (fun x -> h :: x) s)
+;;
