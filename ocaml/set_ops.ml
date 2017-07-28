@@ -21,9 +21,9 @@ let rec (add : 'a -> 'a list -> 'a list) =
 let rec (union : 'a list -> 'a list -> 'a list) =
 	fun s1 s2 ->
 		match (s1, s2) with
-			([], []) -> []
-		| ([], _::_) -> s2
-		| (_::_, []) -> s1
+			([], []) 	   -> []
+		| ([], _::_) 	   -> s2
+		| (_::_, []) 	   -> s1
 		| (h1::t1, h2::t2) -> union t1 (add h1 t2)
 ;;
 
@@ -32,9 +32,9 @@ let rec (union : 'a list -> 'a list -> 'a list) =
 let (intersection : 'a list -> 'a list -> 'a list) =
 	fun s1 s2 ->
 		match (s1, s2) with
-			([], []) -> []
-		| ([], _::_) -> []
-		| (_::_, []) -> []
+			([], []) 	   -> []
+		| ([], _::_) 	   -> []
+		| (_::_, [])       -> []
 		| (h1::t1, h2::t2) -> List.filter (fun (x) -> if member x s1 then true else false) s2
 ;;
 
@@ -44,7 +44,7 @@ let rec (setify : 'a list -> 'a list) =
 	fun l ->
 		match l with
 			[] -> []
-		| [h] -> [h]
+		| [h]  -> [h]
 		| h::t -> if (member h t) then setify t else h::setify t
 ;;
 
@@ -56,4 +56,14 @@ let rec (powerset : 'a list -> 'a list list) =
       []   -> [[]]
     | h::t -> let s = powerset t in
                       s @ (List.map (fun x -> h :: x) s)
+;;
+
+(* partition *)
+let rec (partition : ('a -> bool) -> 'a list -> 'a list * 'a list) =
+  fun f l ->
+    match l with
+      []     -> ([], [])
+    | [h]    -> if f h then ([h], []) else ([], [h])
+    | hd::tl -> match partition f tl with
+                  (l1, l2) -> if f hd then (hd::l1, l2) else (l1, hd::l2)
 ;;
