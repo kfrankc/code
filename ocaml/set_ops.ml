@@ -67,3 +67,12 @@ let rec (partition : ('a -> bool) -> 'a list -> 'a list * 'a list) =
     | hd::tl -> match partition f tl with
                   (l1, l2) -> if f hd then (hd::l1, l2) else (l1, hd::l2)
 ;;
+
+(* while loop *)
+let rec (whle : ('a -> bool) -> ('a -> 'a) -> 'a -> 'a) =
+  fun p f x ->
+    if p x then 
+      let t = f x in 
+        whle p f t 
+    else x
+;;
