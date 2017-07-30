@@ -39,3 +39,9 @@ assert( partition (function x -> x > 7) [1;5;4;3;2;6] = ([], [1;5;4;3;2;6]));;
 assert( whle (function x -> x < 10) (function x -> x * 2) 1 = 16);;
 assert( whle (function x -> x < 10) (function x -> x + 1) 0 = 10);;
 assert( whle (function x -> x > 5) (function x -> x / 5) 50 = 2);;
+(* pow *)
+assert( pow 0 (function x -> x + 1) 2 = 2);;
+assert( pow 1 (function x -> x + 1) 2 = 3);;
+assert( pow 5 (function x -> x + 1) 2 = 7);;
+assert( pow 1 (function x -> x*2) 3 = 6);;
+assert( pow 2 (function x -> x*x) 2 = 16);;

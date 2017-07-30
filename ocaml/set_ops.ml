@@ -76,3 +76,11 @@ let rec (whle : ('a -> bool) -> ('a -> 'a) -> 'a -> 'a) =
         whle p f t 
     else x
 ;;
+
+(* power set *)
+let rec (pow : int -> ('a -> 'a) -> ('a -> 'a)) =
+  fun n f -> 
+    match n with
+      0 -> fun x -> x
+    | k -> fun x -> f ((pow (k-1) f) x)
+;;
