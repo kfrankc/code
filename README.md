@@ -8,4 +8,4 @@ I have divided the repo into 3 folders of code:
 2. ocaml - functional programming related problems
 3. python - common interview problems, dp problems
 
-I will add more sections as I continue.
+I will add more sections as I continue, hopefully delving into Java, Javascript, and CSS related design stuff.
