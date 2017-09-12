@@ -75,3 +75,5 @@ results <- table(a)
 ```
 
 What are _Two Way_ Tables?
+
+If you want to add rows to your table just add another vector to the argument of the table command.
