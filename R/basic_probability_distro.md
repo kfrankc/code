@@ -97,3 +97,15 @@
 > qqnorm(y)
 > qqline(y)
 ```
+
+## The Binomial Distribution
+
+**dbinom**: Distribution function
+
+**pbinom**: Cumulative probability distribution function
+
+**qbinom**: Inverse cumulative probability distribution function
+
+**rbinom**: Random numebrs generated according to binomial distro
+
+The Chi-Squared Distribution follows similiar conventions.
